@@ -23,3 +23,4 @@ class Article:
     @property
     def url_title(self) -> str:
         return re.findall(r'https:\/\/kanonierzy\.com\/news\/(.*)\/\d{4,6}\/', self.url)[0]
+
