@@ -1,15 +1,16 @@
 import re
+from datetime import datetime
+from dataclasses import dataclass
 
 
+@dataclass
 class Article:
-
-    def __init__(self, title, url, description, added, comments, picture):
-        self.title = title
-        self.url = url
-        self.description = description
-        self.added = added
-        self.comments = comments
-        self.picture = picture
+    title: str
+    url: str
+    description: str
+    added: datetime
+    comments: int
+    picture: str
 
     @classmethod
     def create_using_adapter(cls, adapter, title, url, description, added, comments, picture):
