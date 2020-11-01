@@ -19,7 +19,9 @@ Also I will be notified about next match
 'comments': 19,\
 'description': 'Już za niespełna godzinę rozpocznie się szlagier 7. kolejki '\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                'Premier League, w którym Arsenal przyjedzie na Old...',\
+                'Premier League, w którym Arsenal przyjedzie na Old...', 
+
+'picture': 'https://kanonierzy.com/images/big/partey_thomas14.jpg', \
 'title': 'Składy: Manchester United vs Arsenal',\
  'url': 'https://kanonierzy.com/news/sklady-manchester-united-vs-arsenal/50638/'  \
  },\
@@ -29,6 +31,7 @@ Also I will be notified about next match
 'description': 'Po meczu z Manchesterem City byłem rozczarowany. Graliśmy '\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 'oczywiście z wicemistrzem Anglii, ale uważałem, że p...',\
+'picture': 'https://kanonierzy.com/images/big/zagadnienia_taktyczne2.jpg', \
 'title': 'Zagadnienia taktyczne: Leicester',\
 'url': 'https://kanonierzy.com/news/zagadnienia-taktyczne-leicester/50637/'  \
 \}}

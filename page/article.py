@@ -3,16 +3,17 @@ import re
 
 class Article:
 
-    def __init__(self, title, url, description, added, comments):
+    def __init__(self, title, url, description, added, comments, picture):
         self.title = title
         self.url = url
         self.description = description
         self.added = added
         self.comments = comments
+        self.picture = picture
 
     @classmethod
-    def create_using_adapter(cls, adapter, title, url, description, added, comments):
-        data = adapter.create_article(title, url, description, added, comments)
+    def create_using_adapter(cls, adapter, title, url, description, added, comments, picture):
+        data = adapter.create_article(title, url, description, added, comments, picture)
         return cls(**data)
 
     def __str__(self):
