@@ -1,4 +1,5 @@
 # KANotifier
+### kanonierzy.com scraper & notifier
 
 As a big fan of Arsenal London, I want to receive notifications about my team.
 
@@ -11,5 +12,23 @@ Also I will be notified about next match
 - [ ] notifications about new posts (email)
 
 
-# kanonierzy.com scraper & notifier
 
+### Results (JSON)
+{{\
+'added': datetime.datetime(2020, 11, 1, 16, 40),\
+'comments': 19,\
+'description': 'Już za niespełna godzinę rozpocznie się szlagier 7. kolejki '\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                'Premier League, w którym Arsenal przyjedzie na Old...',\
+'title': 'Składy: Manchester United vs Arsenal',\
+ 'url': 'https://kanonierzy.com/news/sklady-manchester-united-vs-arsenal/50638/'  \
+ },\
+{\
+'added': datetime.datetime(2020, 11, 1, 14, 41),\
+'comments': 5,\
+'description': 'Po meczu z Manchesterem City byłem rozczarowany. Graliśmy '\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+'oczywiście z wicemistrzem Anglii, ale uważałem, że p...',\
+'title': 'Zagadnienia taktyczne: Leicester',\
+'url': 'https://kanonierzy.com/news/zagadnienia-taktyczne-leicester/50637/'  \
+\}}

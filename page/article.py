@@ -10,6 +10,11 @@ class Article:
         self.added = added
         self.comments = comments
 
+    @classmethod
+    def create_using_adapter(cls, adapter, title, url, description, added, comments):
+        data = adapter.create_article(title, url, description, added, comments)
+        return cls(**data)
+
     def __str__(self):
         return self.url
 
@@ -24,3 +29,6 @@ class Article:
     def url_title(self) -> str:
         return re.findall(r'https:\/\/kanonierzy\.com\/news\/(.*)\/\d{4,6}\/', self.url)[0]
 
+    def show(self):
+        from pprint import pprint
+        pprint(vars(self))
