@@ -9,12 +9,12 @@ class Article:
     url: str
     description: str
     added: datetime
-    comments: int
     picture: str
+    comments: int = 0
 
     @classmethod
     def create_using_adapter(cls, adapter, title, url, description, added, comments, picture):
-        data = adapter.create_article(title, url, description, added, comments, picture)
+        data = adapter.refactor_data(title, url, description, added, comments, picture)
         return cls(**data)
 
     def __str__(self):

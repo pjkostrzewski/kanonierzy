@@ -14,8 +14,22 @@ class KanonierzyScraper(Scraper):
         self.load_cookies_from_file("scrap/kanonierzy_cookies.pkl")
         self.browser.get(self.url)
 
-    def scrap(self):
-        return self.all_news()
+    def scrap(self) -> list:
+        all_news = self.browser.find_elements_by_class_name("singlenews")
+        all_articles = []
 
-    def all_news(self):
-        return self.browser.find_elements_by_class_name("singlenews")
+        for news in all_news:
+            newsimg = news.find_element_by_class_name("newsimg")
+            content = news.find_element_by_class_name("newscont").find_element_by_class_name("text")
+            content_details = content.find_element_by_class_name("details")
+
+            data = dict(
+                title=newsimg.get_attribute("alt"),
+                url=content.find_element_by_css_selector('a').get_attribute('href'),
+                description=content.find_element_by_class_name("text").text,
+                added=content_details.find_element_by_class_name("date").text,
+                comments=content_details.find_element_by_class_name("comments").text,
+                picture=newsimg.get_attribute("src")
+            )
+            all_articles.append(data)
+        return all_articles

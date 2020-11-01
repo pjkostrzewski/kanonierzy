@@ -4,7 +4,7 @@ from datetime import datetime
 class ArticleAdapter:
 
     @classmethod
-    def create_article(cls, title, url, description, added, comments, picture):
+    def refactor_data(cls, title, url, description, added, comments, picture):
         """
         Refactor dict data from Scraper to Article
         :param data: dict
