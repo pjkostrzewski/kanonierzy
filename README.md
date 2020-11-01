@@ -1,5 +1,6 @@
-# KANotifier
-### kanonierzy.com scraper & notifier
+
+![logo](img/logo.png#center)
+### KANOTIFIER - kanonierzy.com scraper & notifications
 
 As a big fan of Arsenal London, I want to receive notifications about my team.
 
