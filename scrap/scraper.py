@@ -2,14 +2,22 @@ from selenium import webdriver
 from scrap.config import chromedriver_path
 from time import sleep
 import pickle
-from abc import abstractmethod, ABC
 
 
-class Scraper(ABC):
+class Scraper:
 
-    @abstractmethod
+    url = None
+
+    def __init__(self, browser):
+        self.browser = browser
+
     def scrap(self):
-        pass
+        raise NotImplementedError
+
+    def load_cookies_from_file(self, filepath):
+        cookies = pickle.load(open(filepath, "rb"))
+        for cookie in cookies:
+            self.browser.add_cookie(cookie)
 
     @staticmethod
     def scroll_down_page(browser, speed=8):
@@ -19,32 +27,34 @@ class Scraper(ABC):
             browser.execute_script("window.scrollTo(0, {});".format(current_scroll_position))
             new_height = browser.execute_script("return document.body.scrollHeight")
 
+    def get_website(self):
+        self.browser.get(self.url)
+
+    def get_cookies(self):
+        return self.browser.get_cookies()
+
+    def pickle_dump(self, filepath="cookies.pkl"):
+        pickle.dump(self.browser.get_cookies(), open(filepath, "wb"))
+
 
 class KanonierzyScraper(Scraper):
+
     url = "https://www.kanonierzy.com/"
 
-    def __init__(self, browser_):
-        self.browser = browser_
+    def __init__(self, browser):
+        super().__init__(browser)
+        self.get_website()
+
+    def get_website(self):
         self.browser.get(self.url)
-        cookies = pickle.load(open("kanonierzy_cookies.pkl", "rb"))
-        for cookie in cookies:
-            self.browser.add_cookie(cookie)
+        self.load_cookies_from_file("kanonierzy_cookies.pkl")
         self.browser.get(self.url)
 
     def all_news(self):
         return self.browser.find_elements_by_class_name("singlenews")
 
-    def accept_cookies(self):
-        return self.browser.find_element_by_css_selector("button")
-
-    def get_cookies(self):
-        return self.browser.get_cookies()
-
-    def pickle_dump(self):
-        pickle.dump(self.browser.get_cookies(), open("cookies.pkl", "wb"))
-
     def scrap(self):
-        return -1
+        return self.all_news()
 
 
 options = webdriver.ChromeOptions()
