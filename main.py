@@ -2,7 +2,7 @@ from scrap.kanonierzy_scraper import KanonierzyScraper
 
 from adapters.article_adapter import ArticleAdapter
 from page.article import Article
-from engine.browser import BrowserChrome
+from engine.chrome_browser import BrowserChrome
 
 
 if __name__ == '__main__':
