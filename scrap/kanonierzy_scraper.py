@@ -2,7 +2,11 @@ from scrap.scraper import Scraper
 
 
 class KanonierzyScraper(Scraper):
+    """
+    Basen on Scraper abstract class
 
+    Scraper for kanonierzy.com website to get newest articles
+    """
     url = "https://www.kanonierzy.com/"
 
     def __init__(self, browser):
