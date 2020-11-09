@@ -2,7 +2,11 @@ from datetime import datetime
 
 
 class ArticleAdapter:
+    """
+    Article Adapter class
 
+    changes data format to create Article easily
+    """
     @classmethod
     def refactor_data(cls, title, url, description, added, comments, picture):
         """
