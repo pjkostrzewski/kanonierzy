@@ -15,9 +15,9 @@ if __name__ == '__main__':
     all_articles = [Article.create_using_adapter(adapter=ArticleAdapter, **data) for data in scraper.scrap()]
     file_adapter = FileAdapter()
     results = {}
-    for idx, x in enumerate([vars(article) for article in all_articles]):
+    for idx, x in enumerate([vars(article) for article in all_articles], start=1):
         results[idx] = x
-    file_adapter.save_to_file(results)
+    file_adapter.save(results)
     # for article in all_articles:
     #     article.show()
 
