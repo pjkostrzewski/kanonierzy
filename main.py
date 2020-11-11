@@ -6,18 +6,25 @@ from engine.chrome_browser import BrowserChrome
 from adapters.file_adapter import FileAdapter
 
 
-if __name__ == '__main__':
+FILENAME = "results.json"
+
+
+def get_articles_from_website():
     browser = BrowserChrome()
-    browser.add_argument('headless')
-    browser.run()
+    browser.add_argument('headless').run()
     scraper = KanonierzyScraper(browser)
     scraper.scroll_down_page(browser)
-    all_articles = [Article.create_using_adapter(adapter=ArticleAdapter, **data) for data in scraper.scrap()]
-    file_adapter = FileAdapter()
+    return [Article.create_using_adapter(adapter=ArticleAdapter, **data) for data in scraper.scrap()]
+
+
+def save_articles(articles):
+    file_adapter = FileAdapter(filename=FILENAME)
     results = {}
-    for idx, x in enumerate([vars(article) for article in all_articles], start=1):
+    for idx, x in enumerate([vars(article) for article in articles], start=1):
         results[idx] = x
     file_adapter.save(results)
-    # for article in all_articles:
-    #     article.show()
 
+
+if __name__ == '__main__':
+    articles = get_articles_from_website()
+    save_articles(articles)
