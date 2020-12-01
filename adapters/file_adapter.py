@@ -22,7 +22,7 @@ class FileAdapter:
     def read_file(self):
         with open(self.filename, 'r') as json_file:
             data = json.load(json_file)
-        return data
+            return data
 
     def _save_to_file(self, data, mode='w'):
         with open(self.filename, mode, encoding=self.encoding) as outfile:
